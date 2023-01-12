@@ -63,7 +63,10 @@ class App extends Component {
           this.setState({ status: "idle" });
         }
       })
-      .catch(console.log);
+      .catch((err) => {
+        console.log(er);
+        this.setState({ status: "rejected" });
+      });
   }
 
   openleModal = (src) => {
