@@ -43,7 +43,12 @@ class App extends Component {
     fetch(
       `https:pixabay.com/api/?key=22812338-89cc7af62214fe881f61e5605&q=${keyword}&image_type=photo&page=${page}&per_page=12`
     )
-      .then((p) => p.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(new Error("oops"));
+      })
       .then((p) => {
         this.setState(
           (prevState) => {
@@ -64,7 +69,7 @@ class App extends Component {
         }
       })
       .catch((err) => {
-        console.log(er);
+        console.log(err);
         this.setState({ status: "rejected" });
       });
   }
