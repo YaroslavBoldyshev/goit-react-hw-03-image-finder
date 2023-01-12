@@ -47,6 +47,7 @@ class App extends Component {
         if (response.ok) {
           return response.json();
         }
+        this.setState({ status: "rejected" });
         return Promise.reject(new Error("oops"));
       })
       .then((p) => {
