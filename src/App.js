@@ -41,7 +41,7 @@ class App extends Component {
 
   fetchImages(keyword, page) {
     fetch(
-      `https:pixabay.com/api/?key=22812338-89cc7af62214fe881f61e5605&q=${keyword}&image_type=photo&page=${page}&per_page=12`
+      `https://pixabay.com/api/?key=22812338-89cc7af62214fe881f61e5605&q=${keyword}&image_type=photo&page=${page}&per_page=12`
     )
       .then((response) => {
         if (response.ok) {
